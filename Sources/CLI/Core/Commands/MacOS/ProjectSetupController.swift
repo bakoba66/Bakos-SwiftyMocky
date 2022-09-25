@@ -27,7 +27,7 @@ public class ProjectSetupController {
 
         path = try ProjectPathOption.select(project: name, at: root)
         project = try XcodeProj(path: path)
-        mockfile = try MockfileInteractor(path: root + "Mockfile")
+        mockfile = try MockfileInteractor(path: root + "Mockfile.yml")
         generate = GenerationController(root: root, mockfile: mockfile.mockfile)
     }
 
