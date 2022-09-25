@@ -46,7 +46,6 @@ class WorkingDirectory {
 
     func cleanup() throws {
         try? config.delete()
-        try? template.delete()
         try? path.delete()
     }
 }
