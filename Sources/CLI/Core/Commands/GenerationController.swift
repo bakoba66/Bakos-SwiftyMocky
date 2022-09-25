@@ -33,7 +33,7 @@ final class GenerationController: GenerationCommand {
     init(root: Path) throws {
         self.root = root
         self.temp = WorkingDirectory(root: root)
-        self.mockfilePath = root + "Mockfile"
+        self.mockfilePath = root + "Mockfile.yml"
         self.mockfile = try Mockfile(path: mockfilePath)
         self.templatePath = mockfile.sourceryTemplate
         if let overrideSourcery = mockfile.sourceryCommand {
@@ -44,7 +44,7 @@ final class GenerationController: GenerationCommand {
     init(root: Path, mockfile: Mockfile) {
         self.root = root
         self.temp = WorkingDirectory(root: root)
-        self.mockfilePath = root + "Mockfile"
+        self.mockfilePath = root + "Mockfile.yml"
         self.mockfile = mockfile
         self.templatePath = mockfile.sourceryTemplate
         if let overrideSourcery = mockfile.sourceryCommand {

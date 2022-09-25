@@ -309,7 +309,7 @@ public class InspectionController {
     // MARK: - Helpers
 
     func fetchMockfile() -> Mockfile? {
-        return try? Mockfile(path: root + "Mockfile")
+        return try? Mockfile(path: root + "Mockfile.yml")
     }
 }
 

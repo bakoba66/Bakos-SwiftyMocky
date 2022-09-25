@@ -46,7 +46,7 @@ public class Application {
     }
 
     public func initialize() {
-        let mockfilePath = (pwd + "Mockfile")
+        let mockfilePath = (pwd + "Mockfile.yml")
         guard !mockfilePath.exists else {
             Message.failure("Mockfile already exists!")
             return handle(MockyError.overrideWarning)

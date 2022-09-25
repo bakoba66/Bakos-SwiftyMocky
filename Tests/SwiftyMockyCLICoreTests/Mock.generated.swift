@@ -400,7 +400,7 @@ open class InstanceFactoryMock: InstanceFactory, Mock {
             case (.m_resolveGenerationCommand__root_rootmockfile_mockfile(let lhsRoot, let lhsMockfile), .m_resolveGenerationCommand__root_rootmockfile_mockfile(let rhsRoot, let rhsMockfile)):
 				var results: [Matcher.ParameterComparisonResult] = []
 				results.append(Matcher.ParameterComparisonResult(Parameter.compare(lhs: lhsRoot, rhs: rhsRoot, with: matcher), lhsRoot, rhsRoot, "root"))
-				results.append(Matcher.ParameterComparisonResult(Parameter.compare(lhs: lhsMockfile, rhs: rhsMockfile, with: matcher), lhsMockfile, rhsMockfile, "mockfile"))
+				results.append(Matcher.ParameterComparisonResult(Parameter.compare(lhs: lhsMockfile, rhs: rhsMockfile, with: matcher), lhsMockfile, rhsMockfile, "mockfile.yml"))
 				return Matcher.ComparisonResult(results)
             default: return .none
             }
