@@ -1604,6 +1604,7 @@ _%>
 -%>
 
 <%_ for type in all { -%><%_ -%>
+// sourcery:file:{{ type.name }}+Mock
 <%_ let autoMockable: Bool = type.inheritedTypes.contains("AutoMockable") || type.annotations["AutoMockable"] != nil
     let protocolToDecorate = types.protocols.first(where: { $0.name == (type.annotations["mock"] as? String) })
     let inlineMockable = protocolToDecorate != nil
@@ -1632,8 +1633,6 @@ _%>
     let conformsToMock = !allMethods.isEmpty || !allVariables.isEmpty -%><%_ -%><%_ -%>
 <%_ if autoMockable { -%>
 // MARK: - <%= type.name %>
-// sourcery:file:{{ type.name }}+Mock
-// swiftlint:disable all
 <%= attributes %>
 <%= accessModifier %> class <%= type.name %><%= mockTypeName %><%= genericTypesModifier %>:<%= inheritFromNSObject ? " NSObject," : "" %> <%= type.name %>, Mock<%= conformsToStaticMock ? ", StaticMock" : "" %><%= genericTypesConstraints %> {
     public init(sequencing sequencingPolicy: SequencingPolicy = .lastWrittenResolvedFirst, stubbing stubbingPolicy: StubbingPolicy = .wrap, file: StaticString = #file, line: UInt = #line) {
@@ -2126,11 +2125,12 @@ _%>
 }
 
 <%_ }
-// sourcery:end
  else { -%>
 // sourcery:end
 <%_ } -%>
-<% } -%>
+<% }
+// sourcery:end
+-%>
 <%_ if mockedCount == 0 { -%>
 // SwiftyMocky: no AutoMockable found.
 // Please define and inherit from AutoMockable, or annotate protocols to be mocked
