@@ -35,7 +35,7 @@ class WorkingDirectory {
                 include: includes,
                 exclude: excludes
             ),
-            templates: templates,
+            templates: [template.string],
             output: output ?? ("." + config.output),
             args: config.args
         )
