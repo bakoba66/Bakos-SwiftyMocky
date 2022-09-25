@@ -2125,7 +2125,9 @@ _%>
 <%_ if autoMockable { -%>
 }
 
-<%_ } else { -%>
+<%_ }
+// sourcery:end
+ else { -%>
 // sourcery:end
 <%_ } -%>
 <% } -%>
