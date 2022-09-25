@@ -101,10 +101,10 @@ final class GenerationController: GenerationCommand {
 
     func generate(_ mock: MockConfiguration, _ disableCache: Bool, _ verbose: Bool, _ watch: Bool) throws {
         let generateMocks = mock.configuration(template: temp.template)
-        try temp.create(config: generateMocks)
+//        try temp.create(config: generateMocks)
         var arguments = [String]()
 
-        arguments += ["--config", "\"\(temp.config.string)\""]
+//        arguments += ["--config", "\"\(temp.config.string)\""]
 
         if disableCache {
             arguments += ["--disableCache"]
