@@ -1,0 +1,25 @@
+PODS:
+  - Sourcery (1.8.0):
+    - Sourcery/CLI-Only (= 1.8.0)
+  - Sourcery/CLI-Only (1.8.0)
+  - SwiftyMocky (4.1.0):
+    - Sourcery (= 1.8.0)
+
+DEPENDENCIES:
+  - SwiftyMocky (from `./`)
+
+SPEC REPOS:
+  trunk:
+    - Sourcery
+
+EXTERNAL SOURCES:
+  SwiftyMocky:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  Sourcery: 6f5fe49b82b7e02e8c65560cbd52e1be67a1af2e
+  SwiftyMocky: 308ec8314ed9a2f72e5b16537ffff046fec8779f
+
+PODFILE CHECKSUM: bdcefa827bbd4d82b3bb801ca8e42fd57d9afed5
+
+COCOAPODS: 1.11.3
