@@ -9,7 +9,7 @@ class WorkingDirectory {
     let identifier = UUID().uuidString
     var path: Path { return root + Path(".mocky\(identifier)") }
     var template: Path { return root + Path("Mock.swifttemplate") }
-    var config: Path { return root + Path("Mockfile") }
+    var config: Path { return root + Path(".mocky\(identifier)/.config.yml.tmp") }
 
     private let root: Path
 

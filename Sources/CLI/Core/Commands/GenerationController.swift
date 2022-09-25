@@ -64,7 +64,6 @@ final class GenerationController: GenerationCommand {
         // Generate mocks for every MockConfiguration
         try mockfile.allMembers.forEach { key in
             guard let mock = mockfile[dynamicMember: key] else { return }
-            try writeTemplete(for: mock)
             Message.actionHeader("Processing mock: \(key) ...")
             try generate(mock, disableCache, verbose, false)
         }
@@ -81,8 +80,6 @@ final class GenerationController: GenerationCommand {
         guard let mock = mockfile[dynamicMember: mockName] else {
             throw MockyError.mockNotFound
         }
-
-        try writeTemplete(for: mock)
 
         if watch {
             Message.actionHeader("Watching mock: \(mockName) ...")
@@ -101,7 +98,7 @@ final class GenerationController: GenerationCommand {
 
     func generate(_ mock: MockConfiguration, _ disableCache: Bool, _ verbose: Bool, _ watch: Bool) throws {
         let generateMocks = mock.configuration(template: temp.template)
-//        try temp.create(config: generateMocks)
+        try temp.create(config: generateMocks)
         var arguments = [String]()
 
         arguments += ["--config", "\"\(temp.config.string)\""]
