@@ -104,7 +104,7 @@ final class GenerationController: GenerationCommand {
 //        try temp.create(config: generateMocks)
         var arguments = [String]()
 
-//        arguments += ["--config", "\"\(temp.config.string)\""]
+        arguments += ["--config", "\"\(temp.config.string)\""]
 
         if disableCache {
             arguments += ["--disableCache"]

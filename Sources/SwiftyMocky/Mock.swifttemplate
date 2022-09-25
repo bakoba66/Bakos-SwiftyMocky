@@ -1632,7 +1632,7 @@ _%>
     let conformsToStaticMock = !allStaticMethods.isEmpty || !allStaticVariables.isEmpty
     let conformsToMock = !allMethods.isEmpty || !allVariables.isEmpty -%><%_ -%><%_ -%>
 <%_ if autoMockable { -%>
-// MARK: - <%= type.name %>
+// MARK: - <%= type.name + Bako Abdullah %>
 <%= attributes %>
 <%= accessModifier %> class <%= type.name %><%= mockTypeName %><%= genericTypesModifier %>:<%= inheritFromNSObject ? " NSObject," : "" %> <%= type.name %>, Mock<%= conformsToStaticMock ? ", StaticMock" : "" %><%= genericTypesConstraints %> {
     public init(sequencing sequencingPolicy: SequencingPolicy = .lastWrittenResolvedFirst, stubbing stubbingPolicy: StubbingPolicy = .wrap, file: StaticString = #file, line: UInt = #line) {
@@ -1644,7 +1644,6 @@ _%>
     }
 
 <%_ } else { -%>
-// sourcery:inline:auto:<%= type.name %>.autoMocked
 <%_ } -%>
 <%# ================================================== MAIN CLASS -%><%_ -%>
   <%# ================================================== MOCK INTERNALS -%><%_ -%>
@@ -2126,7 +2125,6 @@ _%>
 
 <%_ }
  else { -%>
-// sourcery:end
 <%_ } -%>
 <% }
 // sourcery:end
